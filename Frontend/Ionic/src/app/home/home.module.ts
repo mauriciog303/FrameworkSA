@@ -1,23 +1,38 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Routes, RouterModule } from '@angular/router';
+
 import { IonicModule } from '@ionic/angular';
-import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+
+import { TabsPageRoutingModule } from './home-routing.module';
+
 
 import { HomePage } from './home.page';
+import { HomeResolver } from './home.resolver';
+
+const routes: Routes = [
+  {
+    path: '',
+    component: HomePage,
+    resolve: {
+      data: HomeResolver
+    }
+  }
+];
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     IonicModule,
-    RouterModule.forChild([
-      {
-        path: '',
-        component: HomePage
-      }
-    ])
+    RouterModule.forChild(routes),
+    TabsPageRoutingModule
   ],
-  declarations: [HomePage]
+  declarations: [HomePage],
+  providers: [
+    HomeResolver
+  ]
 })
 export class HomePageModule {}
