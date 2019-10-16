@@ -1,80 +1,34 @@
-<ion-content class="tutorial-page" color="dark">
+<ion-content fullscreen scroll-y="false" color="dark">
     <div padding-top text-end>
-      <ion-button fill="clear" [routerLink]="'/login/'" routerDirection="forward" color="light">Saltar<ion-icon name="arrow-forward"></ion-icon></ion-button>
+        <ion-button fill="clear" [routerLink]="'/login/'" routerDirection="forward">Saltar<ion-icon
+                name="arrow-forward"></ion-icon>
+        </ion-button>
     </div>
-  
     <ion-slides pager="true">
-      <ion-slide>
-        <ion-grid>
-          <ion-row>
-              <ion-col>
-                  <br>
-                  <br>
-                  <br>
-                  <img src="../../assets/biva.png" alt="">
-              </ion-col>
-          </ion-row>
-          <ion-row>
-              <ion-col>
-                  <h2>Bienvenido a ETH Pre-BIVA</h2>
-                  <p color="light">La forma más fácil, rápida y segura de comprar acciones con Ethereum.</p>
-                  <br>
-                  <br>
-                  <br>
-              </ion-col>
-          </ion-row>
-        </ion-grid>
-      </ion-slide>
-  
-      <ion-slide>
-          <ion-grid>
-              <ion-row>
-                  <ion-col>
-                      <img src="../../assets/blockchain.png" alt="">
-                  </ion-col>
-              </ion-row>
-              <ion-row>
-                  <ion-col>
-                      <h2>Presentamos MAYA Coin</h2>
-                      <p>Un Token para financiamiento de empresas privadas Mexicanas.</p>
-                      <br>
-                      <br>
-                  </ion-col>
-              </ion-row>
-          </ion-grid>
-      </ion-slide>
-  
-      <ion-slide>
-          <ion-grid>
-              <ion-row>
-                  <ion-col>
-                    <div></div>
-                      <img src="../../assets/ether.png" alt="">
-                  </ion-col>
-              </ion-row>
-              <ion-row>
-                  <ion-col>
-                          <h2>Respaldado Etherium</h2>
-                          <p>Nuestra plataforma de inversion esta respaldada por Smart Contract.</p>
-                  </ion-col>
-              </ion-row>
-          </ion-grid>
-      </ion-slide>
-  
-      <ion-slide>
-          <ion-grid>
-              <ion-row>
-                  <ion-col>
-                      <img src="../../assets/rising.png" alt="">
-                  </ion-col>
-              </ion-row>
-              <ion-row>
-                  <ion-col>
-                      <h2>¿Estas listo para Invertir?</h2>
-                      <ion-button expand="block" fill="clear" [routerLink]="'/login/'" routerDirection="forward">Comenzar</ion-button>
-                  </ion-col>
-              </ion-row>
-          </ion-grid>
-      </ion-slide>
+        <ion-slide>
+            <img src="../../assets/global.png" />
+            <h2>Welcome to the <b>ICA</b></h2>
+            <p padding>The <b>ionic conference app</b> is a practical preview of the ionic framework in action, and a
+                demonstration of proper code use.</p>
+        </ion-slide>
+        <ion-slide>
+            <img src="../../assets/global.png" />
+            <h2>What is Ionic?</h2>
+            <p padding><b>Ionic Framework</b> is an open source SDK that enables developers to build high quality mobile apps
+                with web technologies like HTML, CSS, and JavaScript.</p>
+        </ion-slide>
+        <ion-slide>
+            <img src="../../assets/global.png" />
+            <h2>What is Ionic Pro?</h2>
+            <p padding><b>Ionic Pro</b> is a powerful set of services and features built on top of Ionic Framework that brings a
+                totally new level of app development agility to mobile dev teams.</p>
+        </ion-slide>
+        <ion-slide>
+            <img src="../../assets/global.png" />
+            <h2>Ready to Play?</h2>
+            <ion-button expand="block" fill="clear" [routerLink]="'/login/'" routerDirection="forward">Continue
+                <ion-icon slot="end" name="arrow-forward"></ion-icon>
+            </ion-button>
+        </ion-slide>
     </ion-slides>
-  </ion-content>
+</ion-content>
