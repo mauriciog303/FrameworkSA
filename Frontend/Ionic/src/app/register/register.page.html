@@ -1,4 +1,4 @@
-<ion-content class="form-content">
+<ion-content class="form-content" color="dark">
   <div padding-top text-start>
     <ion-button fill="clear" [routerLink]="'/login/'" routerDirection="forward"><ion-icon name="arrow-back"></ion-icon>Atras</ion-button>
   </div>
@@ -11,7 +11,7 @@
 
   <form class="form" [formGroup]="validations_form" (ngSubmit)="tryRegister(validations_form.value)">
 
-    <ion-item>
+    <ion-item color="dark">
       <ion-label position="stacked">Email:</ion-label>
       <ion-input type="text" placeholder="Ingresa tu correo" formControlName="email"></ion-input>
     </ion-item>
@@ -23,7 +23,7 @@
       </ng-container>
     </div>
 
-    <ion-item>
+    <ion-item color="dark">
       <ion-label position="stacked">Password:</ion-label>
       <ion-input type="password" placeholder="Ingresa tu contraseña" formControlName="password"></ion-input>
     </ion-item>
