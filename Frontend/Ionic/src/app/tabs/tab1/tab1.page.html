@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar color="primary">
+  <ion-toolbar color="dark">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
@@ -78,7 +78,7 @@
   </div>
 </ion-content> -->
 
-<ion-content>
+<ion-content color="dark">
 
       <!-- <ngx-barcode [bc-value]="value" [bc-display-value]="true"></ngx-barcode>
 
@@ -91,7 +91,6 @@
 
         <!-- QR de Págo -->
   <!-- <qrcode [qrdata]="'Your QR code data string'" [size]="256" [level]="'M'"></qrcode> -->
-  <ion-button [routerLink]="'/meetup/'">tinder</ion-button>
   <ion-card class="animated zoomInDown" mode="ios">
       <ion-row>
         <ion-col size="6">
@@ -105,7 +104,7 @@
           <div class="ion-text-left" *ngIf="createdCode">
             <a style="font-weight: bold; font-size: 32px; color:#616161;">${{ createdCode }}</a>
           </div>
-          <h4>Conexion ETH Wallet</h4>
+          <h4>CoDi Scan</h4>
         </ion-col>
       </ion-row>
       <ion-progress-bar type="indeterminate"></ion-progress-bar>
@@ -115,7 +114,7 @@
   </ion-content>
 
 <!-- Teclado de pago -->
-<ion-footer>
+<ion-footer class="fondologin">
     <ion-row>
       <ion-col size="4">
         <ion-button mode="ios" color="light" expand="block" (click)="oneButton()">1</ion-button>
