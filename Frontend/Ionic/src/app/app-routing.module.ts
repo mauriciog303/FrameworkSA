@@ -17,6 +17,7 @@ const routes: Routes = [
   { path: 'settings', loadChildren: './settings/settings.module#SettingsPageModule' },
   { path: 'user', loadChildren: './user/user.module#UserPageModule' },
   { path: 'meetup', loadChildren: './meetup/meetup.module#MeetupPageModule' },
+  { path: 'qr', loadChildren: './examples/qr/qr.module#QrPageModule' },
   // { path: 'new-task-modal', loadChildren: './new-task-modal/new-task-modal.module#NewTaskModalPageModule' },
 ];
 
