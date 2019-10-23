@@ -16,7 +16,26 @@ export class FirebaseService {
     public afAuth: AngularFireAuth
   ){}
 
-  //Función para traer las publicaciones del usuario
+  //Función para crear una publicación CREATE
+  createTask(value){
+    return new Promise<any>((resolve, reject) => {
+      let currentUser = firebase.auth().currentUser;
+      this.afs.collection('people').doc(currentUser.uid).collection('tasks').add({
+        title: value.title,
+        estado: value.estado,
+        sodio: value.sodio,
+        azucar: value.azucar,
+        description: value.description,
+        image: value.image
+      })
+      .then(
+        res => resolve(res),
+        err => reject(err)
+      )
+    })
+  }
+
+  //Función para traer las publicaciones del usuario READ
   getTasks(){
     return new Promise<any>((resolve, reject) => {
       this.afAuth.user.subscribe(currentUser => {
@@ -25,6 +44,30 @@ export class FirebaseService {
           resolve(this.snapshotChangesSubscription);
         }
       })
+    })
+  }
+
+    //Función para actualizar una publicacion UPDATE
+    updateTask(taskKey, value){
+      return new Promise<any>((resolve, reject) => {
+        let currentUser = firebase.auth().currentUser;
+        this.afs.collection('people').doc(currentUser.uid).collection('tasks').doc(taskKey).set(value)
+        .then(
+          res => resolve(res),
+          err => reject(err)
+        )
+      })
+    }
+
+  //Función para borrar una publicación DELETE
+  deleteTask(taskKey){
+    return new Promise<any>((resolve, reject) => {
+      let currentUser = firebase.auth().currentUser;
+      this.afs.collection('people').doc(currentUser.uid).collection('tasks').doc(taskKey).delete()
+      .then(
+        res => resolve(res),
+        err => reject(err)
+      )
     })
   }
 
@@ -47,49 +90,6 @@ export class FirebaseService {
   unsubscribeOnLogOut(){
     //remember to unsubscribe from the snapshotChanges
     this.snapshotChangesSubscription.unsubscribe();
-  }
-
-  //Función para actualizar una publicacion
-  updateTask(taskKey, value){
-    return new Promise<any>((resolve, reject) => {
-      let currentUser = firebase.auth().currentUser;
-      this.afs.collection('people').doc(currentUser.uid).collection('tasks').doc(taskKey).set(value)
-      .then(
-        res => resolve(res),
-        err => reject(err)
-      )
-    })
-  }
-
-  //Función para borrar una publicación
-  deleteTask(taskKey){
-    return new Promise<any>((resolve, reject) => {
-      let currentUser = firebase.auth().currentUser;
-      this.afs.collection('people').doc(currentUser.uid).collection('tasks').doc(taskKey).delete()
-      .then(
-        res => resolve(res),
-        err => reject(err)
-      )
-    })
-  }
-
-  //Función para crear una publicación
-  createTask(value){
-    return new Promise<any>((resolve, reject) => {
-      let currentUser = firebase.auth().currentUser;
-      this.afs.collection('people').doc(currentUser.uid).collection('tasks').add({
-        title: value.title,
-        estado: value.estado,
-        sodio: value.sodio,
-        azucar: value.azucar,
-        description: value.description,
-        image: value.image
-      })
-      .then(
-        res => resolve(res),
-        err => reject(err)
-      )
-    })
   }
 
   //Función de verificacion de imagen
@@ -125,11 +125,20 @@ export class FirebaseService {
     })
   }
 
+  //meetup
+    //Función para traer todo la data
+    getAll(){
+      return new Promise<any>((resolve, reject) => {
+        this.afAuth.user.subscribe(currentUser => {
+          if(currentUser){
+            this.snapshotChangesSubscription = this.afs.collection('people').doc().collection('tasks').snapshotChanges();
+            resolve(this.snapshotChangesSubscription);
+          }
+        })
+      })
+    }
 
-
-
-
-  //Funcion para guardar informacion del usuario registrado
+      //Funcion para guardar informacion del usuario registrado
   createUserInfo(value){
     return new Promise<any>((resolve, reject) => {
       let currentUser = firebase.auth().currentUser;
@@ -144,17 +153,16 @@ export class FirebaseService {
     })
   }
 
-
-  //Función para traer las publicaciones del usuario
-  getUserInfo(){
-    return new Promise<any>((resolve, reject) => {
-      this.afAuth.user.subscribe(currentUser => {
-        if(currentUser){
-          this.snapshotChangesSubscription = this.afs.collection('people').doc(currentUser.uid).collection('user-info').snapshotChanges();
-          resolve(this.snapshotChangesSubscription);
-        }
+    //Función para traer las publicaciones del usuario
+    getUserInfo(){
+      return new Promise<any>((resolve, reject) => {
+        this.afAuth.user.subscribe(currentUser => {
+          if(currentUser){
+            this.snapshotChangesSubscription = this.afs.collection('people').doc(currentUser.uid).collection('user-info').snapshotChanges();
+            resolve(this.snapshotChangesSubscription);
+          }
+        })
       })
-    })
-  }
+    }
   
 }
