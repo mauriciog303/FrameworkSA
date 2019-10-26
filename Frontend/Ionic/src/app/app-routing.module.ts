@@ -18,6 +18,7 @@ const routes: Routes = [
   { path: 'user', loadChildren: './user/user.module#UserPageModule' },
   { path: 'meetup', loadChildren: './meetup/meetup.module#MeetupPageModule' },
   { path: 'qr', loadChildren: './examples/qr/qr.module#QrPageModule' },
+  { path: 'tinder', loadChildren: './tinder/tinder.module#TinderPageModule' },
   // { path: 'new-task-modal', loadChildren: './new-task-modal/new-task-modal.module#NewTaskModalPageModule' },
 ];
 
